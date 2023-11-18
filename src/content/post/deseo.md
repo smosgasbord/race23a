@@ -1,7 +1,7 @@
 ---
 publishDate: 2023-11-18T00:00:00Z
-title: Deseo e identidades al margen: configuración del sujeto en las obras escénicas “Tinieblo”, de Andy Gamboa; “Awake”, de Jimmy Ortiz y “Madre”, de Michelle Sánchez
-excerpt: Esta investigación se desarrolla alrededor de dos ejes: El deseo como discurso e Identidades al margen
+title: Deseo e identidades al margen - configuración del sujeto en las obras escénicas "Tinieblo", "Awake" y "Madre"
+excerpt: Esta investigación se desarrolla alrededor de dos ejes - El deseo como discurso e Identidades al margen
 image: https://ucarecdn.com/262fa453-f73e-486e-b04d-0293e1c76e5a/-/quality/smart/-/format/auto/
 category: Critica
 
