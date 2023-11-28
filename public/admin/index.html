@@ -10,7 +10,16 @@
     // This global flag enables manual initialization.
 window.CMS_MANUAL_INIT = true
 // Usage with script tag
-const { CMS, initCMS: init } = window
+
+  </script>
+  <title>Content Manager</title>
+</head>
+<body>
+  <!-- Include the script that builds the page and powers Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+
+    const { CMS, initCMS: init } = window
 
 /**
  * Optionally pass in a complete config object and set a flag
@@ -41,13 +50,7 @@ init({
     ],
   },
 })
-  </script>
-  <title>Content Manager</title>
-</head>
-<body>
-  <!-- Include the script that builds the page and powers Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <script>
+    
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
       if (!user) {
