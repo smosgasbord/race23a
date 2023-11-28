@@ -5,6 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <script>
+    // This global flag enables manual initialization.
+window.CMS_MANUAL_INIT = true
+// Usage with script tag
+const { CMS, initCMS: init } = window
+
+/**
+ * Optionally pass in a complete config object and set a flag
+ *  (`load_config_file: false`) to ignore the `config.yml`.
+ *
+ * For example, the code below contains a complete config. The
+ * `config.yml` will be ignored when setting `load_config_file` to false.
+ * It is not required if the `config.yml` file is missing to set
+ * `load_config_file`, but will improve performance and avoid a load error.
+ */
+init({
+  config: {
+    backend: {
+      name: 'git-gateway',
+    },
+    load_config_file: false,
+    media_folder: "src/assets/images",
+    public_folder: "assets/images",
+    collections: [
+      { label: "Post", name: "post", folder: "src/content/post", create: true, fields: [
+        { label: 'Title', name: 'title', widget: 'string' },
+       { label: 'Excerpt', name: 'excerpt', widget: 'string' },
+       { label: 'Category', name: 'category', widget: 'string' },
+       { label: 'Image', name: 'image', widget: 'string' },
+       { label: 'Publish Date', name: 'publishDate', widget: 'datetime', required: false },
+      -{ label: 'Content', name: 'body', widget: 'markdown' }
+      ]},
+    ],
+  },
+})
+  </script>
   <title>Content Manager</title>
 </head>
 <body>
