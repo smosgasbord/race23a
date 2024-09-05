@@ -6,9 +6,62 @@
   <meta name="robots" content="noindex" />
   <title>Content Manager</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <script>
+    // This global flag enables manual initialization.
+window.CMS_MANUAL_INIT = true
+// Usage with script tag
+
+  </script>
+  <title>Administrador de Contenido</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-</body>
-</html>
+  <script>
+
+    const { CMS, initCMS: init } = window
+
+/**
+ * Optionally pass in a complete config object and set a flag
+ *  (`load_config_file: false`) to ignore the `config.yml`.
+ *
+ * For example, the code below contains a complete config. The
+ * `config.yml` will be ignored when setting `load_config_file` to false.
+ * It is not required if the `config.yml` file is missing to set
+ * `load_config_file`, but will improve performance and avoid a load error.
+ */
+init({
+  config: {
+    backend: {
+      name: 'github',
+      repo: 'smosgasbord/race23a',
+      branch: 'main'
+    },
+    load_config_file: false,
+    media_folder: "src/assets/images",
+    public_folder: "assets/images",
+    collections: [
+      { label: "Post", name: "post", folder: "src/content/post", create: true, fields: [
+        { label: 'Title', name: 'title', widget: 'string' },
+       { label: 'Excerpt', name: 'excerpt', widget: 'string' },
+       { label: 'Category', name: 'category', widget: 'string' },
+       { label: 'Image', name: 'image', widget: 'string' },
+       { label: 'Publish Date', name: 'publishDate', widget: 'datetime', required: false },
+      { label: 'Content', name: 'body', widget: 'markdown' }
+      ]},
+    ],
+  },
+})
+
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
