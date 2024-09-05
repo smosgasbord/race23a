@@ -2,9 +2,8 @@ backend:
   name: github
   repo: smosgasbord/race23a
   branch: main
-  
-publish_mode: editorial_workflow
 
+publish_mode: editorial_workflow
 media_folder: 'src/assets/images'
 public_folder: '/_astro'
 
